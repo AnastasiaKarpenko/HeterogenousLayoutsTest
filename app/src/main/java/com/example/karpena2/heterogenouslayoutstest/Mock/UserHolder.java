@@ -1,9 +1,11 @@
-package com.example.karpena2.heterogenouslayoutstest;
+package com.example.karpena2.heterogenouslayoutstest.Mock;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.karpena2.heterogenouslayoutstest.R;
 
 public class UserHolder extends RecyclerView.ViewHolder {
     private TextView mUserName;
