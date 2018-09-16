@@ -3,7 +3,11 @@ package com.example.karpena2.heterogenouslayoutstest.Mock;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.karpena2.heterogenouslayoutstest.R;
 
 import java.util.List;
 
@@ -34,8 +38,26 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        RecyclerView.ViewHolder mViewHolder;
+        LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+
+        switch (viewType) {
+            case USER:
+                View v1 = inflater.inflate(R.layout.layout_userholder, viewGroup, false);
+                mViewHolder = new UserHolder(v1);
+                break;
+            case IMAGE:
+                View v2 = inflater.inflate(R.layout.layout_imageholder, viewGroup, false);
+                mViewHolder = new ImageHolder(v2);
+                break;
+            default:
+                View v = inflater.inflate(R.layout.layout_userholder, viewGroup, false);
+                mViewHolder = new UserHolder(v);
+                break;
+        }
+
+        return mViewHolder;
     }
 
     @Override
