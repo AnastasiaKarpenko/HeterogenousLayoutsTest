@@ -61,8 +61,35 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+        switch (viewHolder.getItemViewType()) {
+            case USER:
+                UserHolder userHolder = (UserHolder) viewHolder;
+                configureUserHolder(userHolder, position);
+                break;
+            case IMAGE:
+                ImageHolder imageHolder = (ImageHolder) viewHolder;
+                configureImageHolder(imageHolder, position);
+                break;
+            default:
+                UserHolder defaultHolder = (UserHolder) viewHolder;
+                configureUserHolder(defaultHolder, position);
+                break;
 
+
+        }
+    }
+
+    private void configureImageHolder(ImageHolder imageHolder, int position) {
+        imageHolder.getSampleImage().setImageResource(R.drawable.sample_image);
+    }
+
+    private void configureUserHolder(UserHolder userHolder, int position) {
+        User user = (User) mItems.get(position);
+        if (user != null) {
+            userHolder.getUserName().setText("Name: " + user.getName());
+            userHolder.getUserOrigin().setText("From: " + user.getWhereFrom());
+        }
     }
 
 
