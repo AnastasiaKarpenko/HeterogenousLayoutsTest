@@ -1,6 +1,5 @@
 package com.example.karpena2.heterogenouslayoutstest.Mock;
 
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -75,7 +74,6 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
 
-
     private void configureImageHolder(ImageHolder imageHolder) {
         imageHolder.getSampleImage().setImageResource(R.drawable.sample_image);
     }
@@ -84,10 +82,8 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
         Object u = mItems.get(position);
         User user = (User) u;
         if (user != null) {
-            userHolder.getUserName().setText("Name: " + user.getName());
-            userHolder.getUserOrigin().setText("From: " + user.getWhereFrom());
+            userHolder.getUserName().setText(String.format("Name: %s", user.getName()));
+            userHolder.getUserOrigin().setText(String.format("From: %s", user.getWhereFrom()));
         }
     }
-
-
 }
