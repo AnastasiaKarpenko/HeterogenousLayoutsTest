@@ -71,14 +71,10 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
                 ImageHolder imageHolder = (ImageHolder) viewHolder;
                 configureImageHolder(imageHolder);
                 break;
-            default:
-//                UserHolder defaultHolder = (UserHolder) viewHolder;
-//                configureUserHolder(defaultHolder, position);
-                break;
-
-
         }
     }
+
+
 
     private void configureImageHolder(ImageHolder imageHolder) {
         imageHolder.getSampleImage().setImageResource(R.drawable.sample_image);
