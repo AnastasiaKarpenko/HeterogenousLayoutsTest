@@ -30,7 +30,7 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     public int getItemViewType(int position) {
         if (mItems.get(position) instanceof User) {
             return USER;
-        } else if (mItems.get(position) instanceof Drawable) {
+        } else if (mItems.get(position) instanceof Integer) {
             return IMAGE;
         }
         return -1;
@@ -72,8 +72,8 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
                 configureImageHolder(imageHolder);
                 break;
             default:
-                UserHolder defaultHolder = (UserHolder) viewHolder;
-                configureUserHolder(defaultHolder, position);
+//                UserHolder defaultHolder = (UserHolder) viewHolder;
+//                configureUserHolder(defaultHolder, position);
                 break;
 
 
@@ -81,12 +81,12 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     private void configureImageHolder(ImageHolder imageHolder) {
-
         imageHolder.getSampleImage().setImageResource(R.drawable.sample_image);
     }
 
     private void configureUserHolder(UserHolder userHolder, int position) {
-        User user = (User) mItems.get(position);
+        Object u = mItems.get(position);
+        User user = (User) u;
         if (user != null) {
             userHolder.getUserName().setText("Name: " + user.getName());
             userHolder.getUserOrigin().setText("From: " + user.getWhereFrom());

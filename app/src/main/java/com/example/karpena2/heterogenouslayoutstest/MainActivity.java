@@ -1,7 +1,7 @@
 package com.example.karpena2.heterogenouslayoutstest;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -23,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.recycler_view);
 
+        bindDataToAdapter();
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        bindDataToAdapter();
 
     }
 
