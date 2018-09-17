@@ -69,7 +69,7 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
                 break;
             case IMAGE:
                 ImageHolder imageHolder = (ImageHolder) viewHolder;
-                configureImageHolder(imageHolder, position);
+                configureImageHolder(imageHolder);
                 break;
             default:
                 UserHolder defaultHolder = (UserHolder) viewHolder;
@@ -80,7 +80,8 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
         }
     }
 
-    private void configureImageHolder(ImageHolder imageHolder, int position) {
+    private void configureImageHolder(ImageHolder imageHolder) {
+
         imageHolder.getSampleImage().setImageResource(R.drawable.sample_image);
     }
 
